@@ -1,19 +1,19 @@
-/* ===== ESTILIZAÇÃO BÁSICA ==== */
-*{
+/* ======== ESTILIZAÇÃO BÁSICA ======== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Segoe UI', Roboto;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #1a1a1a;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
-/* ===== HEADER ==== */
-
+/* ======== HEADER ======== */
 header{
     background-color: #fff;
     border-bottom: 3px solid #667eea;
@@ -23,38 +23,39 @@ header{
 }
 
 header h1{
-    font-size: 28px;
-    font-weight: 600;
-    color: #667eea;
-    margin-bottom: 5px;
+   font-size: 28px;
+   font-weight: 600;
+   color: #667eea;
+   margin-bottom: 5px; 
 }
-header p{
+
+header p {
     color: #666;
     font-size: 14px;
 }
 
-/* ====== SEÇÃO DE CÔMODOS ======= */
-main{
+/* ================== SEÇÃO DE CÔMODOS ================== */
+main {
     margin: 30px auto;
     padding: 0 15px;
     max-width: 1200px;
 }
 
-.comodos-section{
+.comodos-section {
     margin-bottom: 40px;
 }
 
-.titulo-section{
+.titulo-section {
     font-size: 18px;
     font-weight: 600;
     color: #fff;
     margin-bottom: 20px;
     padding-left: 10px;
     border-left: 4px solid #fff;
-    text-shadow: 1px 1 px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.dispositivo-card{
+.dispositivo-card {
     border-radius: 16px;
     padding: 20px;
     border: none;
@@ -93,37 +94,37 @@ main{
     background: linear-gradient(135deg, #45b4d4 0%, #2d8aa2 100%);
 }
 
-.dispositivo-card div { 
-    display:flex;
+.dispositivo-card div{
+    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
 }
 
-    .dispositivo-card p {
-        font-size: 28px;
-    }
+.dispositivo-card p {  
+    font-size: 28px;
+}
 
-    .dispositivo-title{
-        font-size: 16px;
-        font-weight: 600;
-        color: #fff;
-        margin-bottom: #fff;
-    }
+.dispositivo-title{
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: #fff;
+}
 
-    .dispositivo-status {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.9);
-        margin-bottom: 15px;
-        font-weight: 500;
-    }
+.dispositivo-status{
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
 
-.dispositivo-flex {
+.dispositivo-flex{
     display: flex;
     justify-content: space-around;
 }
 
-/* =============CONTROLES=============*/
+/* ================== CONTROLES ================== */
 .slider{
     position: absolute;
     background-color: rgba(255, 255, 255, 0.3);
@@ -134,6 +135,7 @@ main{
     border-radius: 26px;
     transition: 0.3s;
 }
+
 .slider:before{
     position: absolute;
     content: " ";
@@ -151,15 +153,50 @@ label{
     display: inline-block;
     width: 50px;
     height: 26px;
-
 }
 
- label input{
+label input{
     opacity: 0;
-    width: 0;
-    height: 0;
- }
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 2;
+}
 
- label input + .slider:before{
-    transform: translateX(24px)
- }
+label input:checked + .slider:before{
+  transform: translateX(24px);
+}
+
+/* ================== RESPONSIVIDADE ================== */
+@media (max-width: 480px) {
+    header{
+        padding: 15px;
+    }
+
+    header h1{
+        font-size: 20px;
+    }
+
+    header p{
+        font-size: 12px;
+    }
+
+    main{
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+
+    .dispositivo-flex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dispositivo-card{
+        margin-bottom: 10px;
+        max-width: 250px;
+        max-height: 150px;
+    }
+}
